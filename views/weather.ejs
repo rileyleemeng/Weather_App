@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/main.css">
+
+</head>
+<body>
+    <div id="weatherInfo">
+        <% if (weatherdata) { %>
+            <h2>Weather Information</h2>
+            <img class="icon" src="https://openweathermap.org/img/wn/<%= weatherdata.weather[0].icon %>.png">
+            <h3>Weather Today in <span class="input-text"><%= cityName %></span>: <span class="generate-tem"><%= weatherdata.main.temp%>°C</span></h3>
+            <p><%= currentDate %></p>
+            <div class="container">
+                <div class="container2">
+                    <p><%= weatherdata.weather[0].description %></p>
+                </div>
+                <div class="container2">
+                    <p>Feels like: <%= weatherdata.main.feels_like %> °C</p>
+                </div>
+                <div class="container2">
+                    <p>Humidity: <%= weatherdata.main.humidity %> %</p>
+                </div>    
+            </div>
+            
+        <% } else { %>
+            <p>No weather data available</p>
+        <% } %>
+    </div>
+    
+</body>
+</html>
